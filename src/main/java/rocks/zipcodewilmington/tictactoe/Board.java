@@ -12,6 +12,7 @@ public class Board {
     }
 
     public Boolean isInFavorOfX() {
+        /*
         Boolean flagX =false;
 
          if(    (board[0][0].equals('X') && board[1][0].equals('X') && board[2][0].equals('X')) ||   //First column
@@ -23,10 +24,14 @@ public class Board {
                 (board[0][0].equals('X') && board[1][1].equals('X') && board[2][2].equals('X')) ||   //Diagonal
                 (board[0][2].equals('X') && board[1][1].equals('X') && board[2][0].equals('X')))   //Diagonal
              flagX=true;
-        return flagX;
+        return flagX;           */
+               return checkWinner('X');
+
     }
 
     public Boolean isInFavorOfO() {
+
+        /*
         Boolean flagO = false;
         if(     (board[0][0].equals('O') && board[1][0].equals('O') && board[2][0].equals('O')) ||   //First column
                 (board[0][1].equals('O') && board[1][1].equals('O') && board[2][1].equals('O')) ||   //Middle column
@@ -38,7 +43,8 @@ public class Board {
                 (board[0][2].equals('O') && board[1][1].equals('O') && board[2][0].equals('O')))    //Diagonal
                 flagO=true;
 
-        return flagO;
+        return flagO;    */
+        return checkWinner('O');
     }
 
     public Boolean isTie() {
@@ -53,6 +59,23 @@ public class Board {
        else
            return "";
 
+    }
+
+    public Boolean checkWinner(Character passedChar)
+    {
+
+        Boolean flag=false;
+        if(     (board[0][0].equals(passedChar) && board[1][0].equals(passedChar) && board[2][0].equals(passedChar)) ||   //First column
+                (board[0][1].equals(passedChar) && board[1][1].equals(passedChar) && board[2][1].equals(passedChar)) ||   //Middle column
+                (board[0][2].equals(passedChar) && board[1][2].equals(passedChar) && board[2][2].equals(passedChar)) ||   //Third column
+                (board[0][0].equals(passedChar) && board[0][1].equals(passedChar) && board[0][2].equals(passedChar)) ||   //First Row
+                (board[1][0].equals(passedChar) && board[1][1].equals(passedChar) && board[1][2].equals(passedChar)) ||   //Second row
+                (board[2][0].equals(passedChar) && board[2][1].equals(passedChar) && board[2][2].equals(passedChar)) ||   //Third row
+                (board[0][0].equals(passedChar) && board[1][1].equals(passedChar) && board[2][2].equals(passedChar)) ||   //Diagonal
+                (board[0][2].equals(passedChar) && board[1][1].equals(passedChar) && board[2][0].equals(passedChar)))    //Diagonal
+            flag=true;
+
+                 return flag;
     }
 
 }
